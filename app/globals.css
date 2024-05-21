@@ -25,3 +25,50 @@ body {
     text-wrap: balance;
   }
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50%);
+    opacity: 0%;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 100%;
+  }
+}
+
+@keyframes slide-right-to-left {
+  from {
+    transform: translateX(50%)
+  }
+  to {
+    transform: translateX(0)
+  }
+}
+
+@keyframes slide-left-to-right {
+  from {
+    transform: translateX(-50%)
+  }
+  to {
+    transform: translateX(0)
+  }
+}
+
+.slideIn {
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+
+.slide-right-to-left {
+  animation-name: slide-right-to-left;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}
+
+.slide-left-to-right {
+  animation-name: slide-left-to-right;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+}

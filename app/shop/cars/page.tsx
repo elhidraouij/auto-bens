@@ -3,8 +3,8 @@ import { CarCatalogue } from "@/components";
 const page = () => {
   return (
     <section className="flex flex-col">
-      <div className="flex flex-col relative h-80screen w-full">
-        <div className="flex flex-col min-h-full w-full justify-center items-center gap-6 z-10">
+      <div className="flex flex-col justify-center relative h-80screen w-full">
+        <div className="slideIn flex flex-col w-full justify-center items-center gap-6 z-10">
           <h2 className="text-yellow-400 text-lg text-center">NOS VÉHICULES</h2>
           <p className="italic text-5xl text-white mb-20 text-center">
             TROUVEZ LE VÉHICULE{" "}

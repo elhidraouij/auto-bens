@@ -1,11 +1,21 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import { useRef } from "react";
+import { useInView } from "framer-motion";
 
 const page = () => {
+  const passionRef = useRef(null);
+  const isPassionInView = useInView(passionRef, {once: true, margin: "15% 0px 0px 0px"});
+  const excellenceRef = useRef(null);
+  const isExcellenceInView = useInView(excellenceRef, {once: true});
+  const selectionRef = useRef(null);
+  const isSelectionInView = useInView(selectionRef, {once: true});
+
   return (
     <section className="flex flex-col">
-      <div className="flex flex-col relative h-80screen w-full">
-        <div className="flex flex-col min-h-full w-full justify-center items-center gap-6 z-10">
+      <div className="flex flex-col justify-center relative h-80screen w-full">
+        <div className="slideIn flex flex-col w-full justify-center items-center gap-6 z-10">
           <h2 className="text-yellow-400 text-lg text-center">
             QUI SOMME NOUS ?
           </h2>
@@ -18,7 +28,12 @@ const page = () => {
       <div className="flex flex-col overflow-hidden">
         <div className="relative flex gap-10 lg:flex-row py-24 flex-col justify-center items-center px-8 md:px-[100px] xl:px-[450px]">
           <div className="absolute -right-24 top-0 z-0 w-1/2 bg-slate-50 -skew-x-12 min-h-full overflow-hidden"></div>
-          <div className="z-20 absolute -bottom-0 left-0 leading-[0.82] space tracking-wider font-bold text-yellow-500 opacity-30 italic text-[200px] overflow-hidden">
+          <div
+            ref={passionRef}
+            className={`z-20 absolute -bottom-0 left-0 leading-[0.82] space tracking-wider font-bold text-yellow-500 opacity-30 italic text-[200px] overflow-hidden w-full ${
+              isPassionInView && "slide-right-to-left"
+            }`}
+          >
             PASSION
           </div>
           <div className="z-10 flex flex-col gap-6">
@@ -47,19 +62,20 @@ const page = () => {
         </div>
         <div className="relative flex gap-10 lg:flex-row-reverse py-24 flex-col-reverse justify-center items-center px-8 md:px-[100px] xl:px-[450px]">
           <div className="absolute -left-48 top-0 z-0 w-1/2 bg-zinc-900 -skew-x-12 min-h-full overflow-hidden"></div>
-          <div className="z-20 absolute -bottom-0 right-0 leading-[0.82] space tracking-wider font-bold text-yellow-500 opacity-30 italic text-[200px] overflow-hidden">
+          <div ref={excellenceRef} className={`z-20 absolute -bottom-0 right-0 leading-[0.82] text-right space tracking-wider font-bold text-yellow-500 opacity-30 italic text-[200px] overflow-hidden w-full ${isExcellenceInView && 'slide-left-to-right'}`}>
             EXCELLENCE
           </div>
           <div className="z-10 flex flex-col gap-6">
             <h2 className="text-yellow-400 text-lg">NOS ENGAGEMENTS</h2>
             <p className="italic text-4xl">LE PRIX</p>
             <p className="text-lg leading-loose">
-              Chez Autobens, nous croyons que la qualité ne doit jamais se faire au détriment
-              du prix. Nous nous engageons à offrir à nos clients des véhicules
-              à des tarifs compétitifs, transparents et sans surprise. Grâce à
-              notre réseau et à notre expertise en négociation, nous sommes en
-              mesure de vous proposer les meilleures offres du marché. Chaque
-              prix chez Autobens est soigneusement étudié pour vous garantir{" "}
+              Chez Autobens, nous croyons que la qualité ne doit jamais se faire
+              au détriment du prix. Nous nous engageons à offrir à nos clients
+              des véhicules à des tarifs compétitifs, transparents et sans
+              surprise. Grâce à notre réseau et à notre expertise en
+              négociation, nous sommes en mesure de vous proposer les meilleures
+              offres du marché. Chaque prix chez Autobens est soigneusement
+              étudié pour vous garantir{" "}
               <strong className="text-yellow-500">
                 un excellent rapport qualité-prix
               </strong>
@@ -77,7 +93,7 @@ const page = () => {
         </div>
         <div className="relative flex gap-10 lg:flex-row py-24 flex-col justify-center items-center px-8 md:px-[100px] xl:px-[450px]">
           <div className="absolute -right-24 top-0 z-0 w-1/2 bg-slate-50 -skew-x-12 min-h-full overflow-hidden"></div>
-          <div className="z-20 absolute -bottom-0 left-0 leading-[0.82] space tracking-wider font-bold text-yellow-500 opacity-30 italic text-[200px] overflow-hidden">
+          <div ref={selectionRef} className={`z-20 absolute -bottom-0 left-0 leading-[0.82] pt-10 space tracking-wider font-bold text-yellow-500 opacity-30 italic text-[200px] overflow-hidden w-full ${isSelectionInView && 'slide-right-to-left'}`}>
             SÉLECTION
           </div>
           <div className="z-10 flex flex-col gap-6">

@@ -8,11 +8,11 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div className="relative top-0 flex flex-col h-95screen w-full justify-center items-center overflow-hidden bg-zinc-600">
-      <div className="relative z-20 flex flex-col justify-center items-center space-y-12 ">
+      <div className="slideIn relative z-20 flex flex-col justify-center items-center space-y-12 ">
         <div className="flex flex-col items-center justify-center space-y-6">
           <span className="text-yellow-500 text-lg">AUTO BEN'S</span>
-          <h1 className="italic text-4xl text-white text-center">
-            ROULEZ AVEC LA <span className="font-bold">VOITURE</span> DE VOS{" "}
+          <h1 className="italic text-5xl text-white text-center">
+            LA <span className="font-bold">VOITURE</span> DE VOS{" "}
             <span className="font-bold">RÊVES</span> EN UN CLIC
           </h1>
         </div>
