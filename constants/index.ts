@@ -70,7 +70,7 @@ export const headerLinks = [
     },
     {
         title: 'Nous contacter',
-        link: '/shop/contactus'
+        link: '/shop/contact-us'
     }
 ]
 

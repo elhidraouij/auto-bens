@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Inter, Poppins } from "next/font/google";
-import { Footer, AdminHeader } from "@/components";
+import { Footer, AdminHeader, AdminNav } from "@/components";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,11 +26,16 @@ export default function AdminLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <body className={poppins.className}>
-        <AdminHeader />
-        {children}
-        <Footer />
+        <div className="flex flex-row">
+            <AdminNav />
+          <div className="flex flex-col w-full">
+            <AdminHeader />
+            {children}
+            <Footer />
+          </div>
+        </div>
       </body>
     </html>
   );

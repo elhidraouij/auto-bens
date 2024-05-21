@@ -1,12 +1,18 @@
 "use client";
 
-import { ChangeEvent, FormEvent, MouseEventHandler, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  MouseEventHandler,
+  useEffect,
+  useState,
+} from "react";
 
 import { fuelList, transmissionList } from "@/constants";
 import { CarDialogProps } from "@/types";
 import { addCar, updateCar, deleteCar } from "@/services/carService";
 
-const CarDialog = ({ car, setShowDialog }: CarDialogProps) => {
+const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
   const [id, setId] = useState("");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
@@ -48,21 +54,22 @@ const CarDialog = ({ car, setShowDialog }: CarDialogProps) => {
   };
 
   const handleDelete = async () => {
-    if (!edit || !car || !id || id === ""){
-      return
+    if (!edit || !car || !id || id === "") {
+      return;
     }
     const form = new FormData();
-    form.append('id', id)
+    form.append("id", id);
 
     try {
-      deleteCar(form)
+      deleteCar(form);
     } catch (err) {
       console.error(err);
       return;
     }
 
     setShowDialog(false);
-  }
+    setRefreshEvent((value) => !value);
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -94,6 +101,7 @@ const CarDialog = ({ car, setShowDialog }: CarDialogProps) => {
     }
 
     setShowDialog(false);
+    setRefreshEvent((value) => !value);
   };
 
   return (
@@ -396,28 +404,30 @@ const CarDialog = ({ car, setShowDialog }: CarDialogProps) => {
             </svg>
             {edit ? "Modifier la voiture" : "Ajouter la nouvelle voiture"}
           </button>
-          {edit && car && <button
-            onClick={handleDelete}
-            type="button"
-            className="transition inline-flex items-center border text-red-700 border-red-700 bg-transparent hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-          >
-            <svg
-              className="mr-2 w-2 h-2"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 14 14"
+          {edit && car && (
+            <button
+              onClick={handleDelete}
+              type="button"
+              className="transition inline-flex items-center border text-red-700 border-red-700 bg-transparent hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-              />
-            </svg>
-            Supprimer la voiture
-          </button>}
+              <svg
+                className="mr-2 w-2 h-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                />
+              </svg>
+              Supprimer la voiture
+            </button>
+          )}
         </div>
       </form>
     </div>

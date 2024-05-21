@@ -33,7 +33,7 @@ db.serialize(() => {
         console.log('TABLE créée')
     }
 
-    const values = ['BMW', 'X3', 2006, 'Essence', 'Automatic', '2006_bmw_x3_270000.png', 270000, 6990.00, 2.0]
+    const values = ['BMW', 'X3', 2006, 'Essence / Electrique', 'Automatique', '2006_bmw_x3_270000.png', 270000, 6990.00, 2.0]
 
     const insertSql = `INSERT INTO cars(brand, model, year, fuel, transmission, image, mileage, price, capacity) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
@@ -47,7 +47,7 @@ db.serialize(() => {
         })
     }
     
-    const values2 = ['BMW', 'X3', 2006, 'Essence', 'Automatic', '2006_bmw_x3_270000.png', 270000, 6990.00, 2.0, 1]
+    const values2 = ['BMW', 'X3', 2006, 'Essence / Electrique', 'Automatique', '2006_bmw_x3_270000.png', 270000, 6990.00, 2.0, 1]
 
     const insertSql2 = `INSERT INTO cars(brand, model, year, fuel, transmission, image, mileage, price, capacity, hidden) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 
@@ -60,7 +60,7 @@ db.serialize(() => {
             console.log(`Rows inserted, ID ${id}`)
         })
     }
-    const values3 = ['BMW', 'X3', 2006, 'Essence', 'Automatic', '2006_bmw_x3_270000.png', 270000, 6990.00, 2.0, 1]
+    const values3 = ['BMW', 'X3', 2006, 'Essence / Electrique', 'Automatique', '2006_bmw_x3_270000.png', 270000, 6990.00, 2.0, 1]
 
     const insertSql3 = `INSERT INTO cars(brand, model, year, fuel, transmission, image, mileage, price, capacity, solded) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
 

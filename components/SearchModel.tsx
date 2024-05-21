@@ -54,7 +54,10 @@ const SearchModel = ({
             className="bg-slate-50 rounded-md px-4 py-2 focus:outline-none w-full"
             placeholder="Modèle.."
             displayValue={(model: string) => model}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value)
+              setModel(e.target.value)
+            }}
           />
           <Transition
             as={Fragment}

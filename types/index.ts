@@ -3,7 +3,7 @@ import { MouseEventHandler } from "react";
 export interface SlideButtonProps {
     title: string;
     styles: string;
-    handleClick: MouseEventHandler<HTMLButtonElement>;
+    handleClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
 export interface SearchBarProps {
@@ -26,12 +26,14 @@ export interface SearchModelProps {
 
 export interface PaginationProps {
     page: number;
+    totalPage: number;
     setPage: (page: number) => void;
 }
 
 export interface CarDialogProps {
     car?: CarProps;
     setShowDialog: (showDialog: boolean) => void;
+    setRefreshEvent: (fn:(value: boolean) => boolean) => void;
 }
 
 export interface CarProps {
@@ -50,9 +52,21 @@ export interface CarProps {
 }
 
 export interface CarCatalogueProps {
+    title?: string;
+    subtitle?: string;
     hidden: number;
     solded: number;
     isAdmin: boolean;
-    setShowDialog?: (showDialog: boolean) => void;
-    setCar?: (car: CarProps) => void;
+}
+
+export interface MessageProps {
+    id?: number;
+    prenom: string;
+    nom: string;
+    telephone: string;
+    email: string;
+    object: string;
+    description: string;
+    read?: number;
+    datePublication: number
 }

@@ -9,7 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       height: {
-        '95screen': '95vh'
+        '95screen': '95vh',
+        '90screen': '90vh',
+        '85screen': '85vh',
+        '80screen': '80vh'
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

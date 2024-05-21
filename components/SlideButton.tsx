@@ -8,7 +8,7 @@ const SlideButton = ({ title, styles, handleClick }: SlideButtonProps) => {
     <button
       disabled={false}
       className={`transition-all ease-in-out slide-btn py-2 px-4 -skew-x-12 border rounded-sm text-lg ${styles}`}
-      onClick={handleClick}
+      onClick={handleClick ? handleClick : () => {}}
     >
       {title}
     </button>

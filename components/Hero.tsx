@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import SlideButton from "./SlideButton";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -12,14 +13,29 @@ const Hero = () => {
           <span className="text-yellow-500 text-lg">AUTO BEN'S</span>
           <h1 className="italic text-4xl text-white text-center">
             ROULEZ AVEC LA <span className="font-bold">VOITURE</span> DE VOS{" "}
-            <span className="font-bold">REVES</span> EN UN CLIC
+            <span className="font-bold">RÊVES</span> EN UN CLIC
           </h1>
         </div>
-        <SlideButton
-          title="Trouve ta voiture maintenant"
-          styles="mt-8 text-white border-white hover:bg-yellow-500 hover:border-yellow-500"
-          handleClick={() => {}}
-        />
+        <Link href={"/shop/cars"}>
+          <SlideButton
+            title="Trouve ta voiture maintenant"
+            styles="mt-8 text-white border-white hover:bg-yellow-500 hover:border-yellow-500"
+          />
+        </Link>
+        <Link href={"#avis"}>
+          <svg
+            className="transition duration-500 stroke-yellow-400 fill-none shadow-sm cursor-pointer hover:scale-90"
+            xmlns="http://www.w3.org/2000/svg"
+            width="32.527"
+            height="32.527"
+            viewBox="0 0 32.527 32.527"
+          >
+            <path
+              d="M22,0V22H0"
+              transform="translate(16.263) rotate(45)"
+            ></path>
+          </svg>
+        </Link>
       </div>
       <video
         autoPlay

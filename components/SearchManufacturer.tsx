@@ -38,7 +38,10 @@ const SearchManufacturer = ({
             className="bg-slate-50 rounded-md px-4 py-2 focus:outline-none w-full"
             placeholder="Fabricant.."
             displayValue={(manufacturer: string) => manufacturer}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setQuery(e.target.value)
+              setManufacturer(e.target.value)
+            }}
           />
           <Transition
             as={Fragment}

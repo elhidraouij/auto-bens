@@ -24,7 +24,7 @@ const AdminHeader = () => {
   }, [])
 
   return (
-    <header className="bg-zinc-050 top-0 z-50">
+    <header className="bg-zinc-050 top-0 z-50 w-full">
       <nav className="flex flex-row justify-between items-center px-6 py-3 relative">
         <Link href="/">
           <span className="text-zinc-700 text-xl font-bold">

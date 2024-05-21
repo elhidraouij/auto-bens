@@ -5,8 +5,8 @@ import { footerLinks } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col text-black-100 mt-5 border-t border-gray-100 px-4 py-8">
-      <div className="flex flex-row py-4">
+    <footer className="flex flex-col text-black-100 border-t border-gray-100 px-4 py-8">
+      <div className="flex md:flex-row flex-col gap-8 py-4">
         <div className="flex flex-col justify-start items-start gap-4 px-12 border-r">
           <Image
             src={"/images/auto-bens-logo.png"}
