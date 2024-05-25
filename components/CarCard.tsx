@@ -68,11 +68,11 @@ const CarCard = ({ car, isAdmin, setRefreshEvent }: CarCardProps) => {
         </div>
 
         <p className="flex mt-2">
-          <span className="text-2xl font-extrabold">{price}</span>
-          <span className="text-md">€</span>
+          <span className="text-2xl font-extrabold text-zinc-800">{price}</span>
+          <span className="text-md text-zinc-800">€</span>
         </p>
         <p className="flex">
-          <span className="text-md">{mileage} km</span>
+          <span className="text-md text-zinc-800">{mileage} km</span>
         </p>
 
         <div className="relative w-full h-40 my-3 object-contain">
@@ -94,15 +94,15 @@ const CarCard = ({ car, isAdmin, setRefreshEvent }: CarCardProps) => {
                 height={20}
                 alt="steering wheel"
               />
-              <p className="text-md text-center">{transmission}</p>
+              <p className="text-md text-center text-zinc-800">{transmission}</p>
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
               <Image src="/images/tire.svg" width={20} height={20} alt="tire" />
-              <p className="text-md text-center">{capacity}L</p>
+              <p className="text-md text-center text-zinc-800">{capacity}L</p>
             </div>
             <div className="flex flex-col justify-center items-center gap-2">
               <Image src="/images/gas.svg" width={20} height={20} alt="gas" />
-              <p className="text-md text-center">{fuel}</p>
+              <p className="text-md text-center text-zinc-800">{fuel}</p>
             </div>
           </div>
         </div>
