@@ -6,6 +6,7 @@ interface UserJwtPayload {
     iat: number
 }
 
+// Vérifier l'authentification 
 export const verifyAuth = async (token: string) => {
     try {
         const verified = await jwtVerify(token, new TextEncoder().encode(secret_key))
