@@ -20,7 +20,7 @@ class AutobensDatabase {
 
     public async getDatabase(): Promise<Database> {
         if (this.db === null) {
-            const dbPath = 'db/autobens.db';
+            const dbPath = '/db/autobens.db';
             const dirPath = path.dirname(dbPath);
 
             try {
