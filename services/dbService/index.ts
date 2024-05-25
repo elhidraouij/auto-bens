@@ -22,7 +22,7 @@ class AutobensDatabase {
   public async getDatabase(): Promise<Database> {
     if (this.db === null) {
       console.log("Répertoire actuel : " + process.cwd());
-      let projectDir = process.cwd() + "/.next/";
+      let projectDir = process.cwd()
       const dirPath = projectDir + "db";
       try {
         await fsPromises.mkdir(dirPath, { recursive: true });
