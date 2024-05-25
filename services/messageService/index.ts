@@ -1,7 +1,7 @@
 import { apiUrl } from "@/constants";
 
 export const getMessages = async (page: number, elementParPage: number) => {
-    const response = await fetch(`http://${apiUrl}/messages?page=${page}&elementParPage=${elementParPage}`, {
+    const response = await fetch(`${apiUrl}/messages?page=${page}&elementParPage=${elementParPage}`, {
         method: 'GET'
     })
 
@@ -19,7 +19,7 @@ export const getMessages = async (page: number, elementParPage: number) => {
 }
 
 export const postMessage = async (form: FormData) => {
-    const response = await fetch(`http://${apiUrl}/messages`, {
+    const response = await fetch(`${apiUrl}/messages`, {
         method: 'POST',
         body: form
     })
@@ -37,7 +37,7 @@ export const readMessage = async (id: number) => {
     const form = new FormData()
     form.append('id', id.toString())
     
-    const response = await fetch(`http://${apiUrl}/messages`, {
+    const response = await fetch(`${apiUrl}/messages`, {
         method: 'PUT',
         body: form
     })

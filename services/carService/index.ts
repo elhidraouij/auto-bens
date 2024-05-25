@@ -17,7 +17,7 @@ export const getCars = async (
     brand = brand ? brand : ''
     model = model ? model : ''
 
-    const response = await fetch(`http://${apiUrl}/cars?page=${page}&elementPerPage=${elementPerPage}&hidden=${hidden}&solded=${solded}&brand=${brand}&model=${model}`)
+    const response = await fetch(`${apiUrl}/cars?page=${page}&elementPerPage=${elementPerPage}&hidden=${hidden}&solded=${solded}&brand=${brand}&model=${model}`)
 
     if (!response.ok) {
         if (response.status === 404) {
@@ -33,7 +33,7 @@ export const getCars = async (
 }
 
 export const getModels = async () => {
-    const response = await fetch(`http://${apiUrl}/cars/models`)
+    const response = await fetch(`${apiUrl}/cars/models`)
 
     if (!response.ok) {
         if (response.status === 404) {
@@ -47,7 +47,7 @@ export const getModels = async () => {
 }
 
 export const addCar = async (form: FormData) => {
-    const response = await fetch(`http://${apiUrl}/cars`, {
+    const response = await fetch(`${apiUrl}/cars`, {
         method: 'POST',
         body: form
     })
@@ -64,7 +64,7 @@ export const addCar = async (form: FormData) => {
 }
 
 export const updateCar = async (form: FormData) => {
-    const response = await fetch(`http://${apiUrl}/cars`, {
+    const response = await fetch(`${apiUrl}/cars`, {
         method: 'PUT',
         body: form
     })
@@ -81,7 +81,7 @@ export const updateCar = async (form: FormData) => {
 }
 
 export const deleteCar = async (form: FormData) => {
-    const response = await fetch(`http://${apiUrl}/cars`, {
+    const response = await fetch(`${apiUrl}/cars`, {
         method: 'DELETE',
         body: form
     })

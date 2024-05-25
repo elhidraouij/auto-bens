@@ -1,7 +1,7 @@
 import { link } from "fs"
 
 export const secret_key = 'autobens_feat_dalwaj_for_cars'
-export const apiUrl = 'localhost:3000/api'
+export const apiUrl = 'https://auto-bens.vercel.app/api'
 export const manufacturers = [
     "Toyota",
     "Volkswagen",
