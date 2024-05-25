@@ -17,16 +17,14 @@ export const GET = async (
     const hidden = req.nextUrl.searchParams.get('hidden')
     const solded = req.nextUrl.searchParams.get('solded')
 
-    console.log(solded)
-
     if (!page || !elementPerPage || !hidden || !solded) {
         return new NextResponse(JSON.stringify({ message: 'Bad Request' }), { status: 400 });
     }
 
     let pageInt = 0;
     let elementPerPageInt = 0;
-    let hiddenBool = hidden === '1';
-    let soldedBool = solded === '1';
+    let hiddenBool = hidden === 'true';
+    let soldedBool = solded === 'false';
     try {
         pageInt = +page
         elementPerPageInt = +elementPerPage
@@ -76,8 +74,8 @@ export const POST = async (
     const image = formData.get('image') as File;
     const imageName = `${year}_${brand}_${model}_${mileage}.png`;
 
-    let solded = (formData.get('solded') as string) === '1'
-    let hidden = (formData.get('hidden') as string) === '1'
+    let solded = (formData.get('solded') as string) === 'true'
+    let hidden = (formData.get('hidden') as string) === 'true'
 
     if (!brand || !model || !year || !fuel || !transmission || !mileage || !price || !capacity || !image) {
         return new NextResponse(JSON.stringify({ message: 'Bad Request' }), { status: 400 });
@@ -172,8 +170,8 @@ export const PUT = async (
     const capacity = parseInt(formData.get('capacity') as string, 10);
     const image = formData.get('image') as File;
     const imageName = `${year}_${brand}_${model}_${mileage}.png`;
-    const solded = (formData.get('solded') as string) === '1';
-    const hidden = (formData.get('hidden') as string) === '1';
+    const solded = (formData.get('solded') as string) === 'true';
+    const hidden = (formData.get('hidden') as string) === 'true';
 
     if (!id || !brand || !model || !year || !fuel || !transmission || !mileage || !price || !capacity || !image) {
         return new NextResponse(JSON.stringify({ message: 'Bad Request' }), { status: 400 });
