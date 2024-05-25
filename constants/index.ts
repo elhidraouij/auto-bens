@@ -2,7 +2,6 @@ import { link } from "fs"
 
 export const secret_key = 'autobens_feat_dalwaj_for_cars'
 
-// api url
 export const apiUrl = 'https://auto-bens.netlify.app/api'
 export const manufacturers = [
     "Toyota",
