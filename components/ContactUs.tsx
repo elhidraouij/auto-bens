@@ -90,7 +90,7 @@ const ContactUs = () => {
           <div className="col-span-1">
             <label
               htmlFor="prenom"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Prenom
             </label>
@@ -110,7 +110,7 @@ const ContactUs = () => {
           <div className="col-span-1">
             <label
               htmlFor="nom"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Nom
             </label>
@@ -130,7 +130,7 @@ const ContactUs = () => {
           <div className="col-span-1">
             <label
               htmlFor="tel"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Téléphone
             </label>
@@ -150,7 +150,7 @@ const ContactUs = () => {
           <div className="col-span-1">
             <label
               htmlFor="mail"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               E-mail
             </label>
@@ -170,7 +170,7 @@ const ContactUs = () => {
           <div className="md:col-span-2 col-span-1">
             <label
               htmlFor="subject"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Objet
             </label>
@@ -190,7 +190,7 @@ const ContactUs = () => {
           <div className="md:col-span-2 col-span-1">
             <label
               htmlFor="description"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Dis nous tout
             </label>

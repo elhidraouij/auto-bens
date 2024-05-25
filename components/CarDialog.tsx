@@ -30,7 +30,6 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
 
   useEffect(() => {
     if (car) {
-      console.log(car.id);
       setEdit(true);
       setId(car.id!.toString());
       setBrand(car.brand);
@@ -105,16 +104,16 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
   };
 
   return (
-    <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
-      <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+    <div className="relative bg-white rounded-lg shadow ">
+      <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+        <h3 className="text-lg font-semibold text-gray-900 ">
           {edit ? `Modifier ${brand} ${model}` : "Ajouter une voiture"}
         </h3>
         <button
           onClick={() => {
             setShowDialog(false);
           }}
-          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+          className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center "
         >
           <svg
             className="w-3 h-3"
@@ -139,7 +138,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2">
             <label
               htmlFor="brand"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Fabricant
             </label>
@@ -159,7 +158,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2">
             <label
               htmlFor="model"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Modèle
             </label>
@@ -179,7 +178,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2 sm:col-span-1">
             <label
               htmlFor="year"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Année
             </label>
@@ -187,7 +186,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
               type="number"
               name="year"
               id="year"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
               placeholder="2006"
               value={year}
               onChange={(e) => {
@@ -199,7 +198,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2 sm:col-span-1">
             <label
               htmlFor="mileage"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Kilométrage
             </label>
@@ -207,7 +206,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
               type="number"
               name="mileage"
               id="mileage"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2."
               placeholder="200000"
               value={mileage}
               onChange={(e) => {
@@ -219,7 +218,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2 sm:col-span-1">
             <label
               htmlFor="fuel"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Energie
             </label>
@@ -229,7 +228,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
               onChange={(e) => {
                 setFuel(e.target.value);
               }}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
             >
               {fuelList.map((fuel) => (
                 <option key={fuel} value={fuel}>
@@ -241,7 +240,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2 sm:col-span-1">
             <label
               htmlFor="transmission"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Transmission
             </label>
@@ -251,7 +250,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
               onChange={(e) => {
                 setTransmission(e.target.value);
               }}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
             >
               {transmissionList.map((transmission) => (
                 <option key={transmission} value={transmission}>
@@ -263,7 +262,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2 sm:col-span-1">
             <label
               htmlFor="capacity"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Réservoir {"("}en litres{")"}
             </label>
@@ -271,7 +270,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
               type="number"
               name="capacity"
               id="capacity"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
               placeholder="200000"
               value={capacity}
               onChange={(e) => {
@@ -283,7 +282,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2 sm:col-span-1">
             <label
               htmlFor="price"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Prix {"("}en €{")"}
             </label>
@@ -291,7 +290,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
               type="number"
               name="price"
               id="price"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
               placeholder="2006"
               value={price}
               onChange={(e) => {
@@ -303,24 +302,24 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
           <div className="col-span-2 sm:col-span-2">
             <label
               htmlFor="image"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-gray-900 "
             >
               Image
             </label>
             <div className="flex items-center justify-center w-full">
               <label
                 htmlFor="image"
-                className="flex flex-col items-center justify-center w-full h-[120px] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+                className="flex flex-col items-center justify-center w-full h-[120px] border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100"
               >
                 <div className="flex flex-col items-center justify-center">
                   {image ? (
-                    <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                    <p className="mb-2 text-sm text-gray-500 ">
                       {image.name}
                     </p>
                   ) : (
                     <>
                       <svg
-                        className="w-8 h-8 text-gray-500 dark:text-gray-400"
+                        className="w-8 h-8 text-gray-500 "
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -334,13 +333,13 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
                           d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
                         />
                       </svg>
-                      <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                      <p className="mb-2 text-sm text-gray-500 ">
                         <span className="font-semibold">
                           Clique pour déposer
                         </span>{" "}
                         ou drag and drop
                       </p>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                      <p className="text-xs text-gray-500 ">
                         PNG (MAX. 800x400px)
                       </p>
                     </>
@@ -366,8 +365,8 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
                 }}
                 className="sr-only peer"
               />
-              <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-              <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+              <span className="ms-3 text-sm font-medium text-gray-900 ">
                 Vendue
               </span>
             </label>
@@ -382,8 +381,8 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
                 }}
                 className="sr-only peer"
               />
-              <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-              <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+              <div className="relative w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300   peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all  peer-checked:bg-blue-600"></div>
+              <span className="ms-3 text-sm font-medium text-gray-900 ">
                 Désactivée
               </span>
             </label>
@@ -392,7 +391,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
         <div className="flex flex-row gap-2">
           <button
             type="submit"
-            className="text-white inline-flex items-center bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="text-white inline-flex items-center bg-yellow-600 hover:bg-yellow-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
           >
             <svg
               className="me-1 -ms-1 w-5 h-5"
@@ -408,7 +407,7 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
             <button
               onClick={handleDelete}
               type="button"
-              className="transition inline-flex items-center border text-red-700 border-red-700 bg-transparent hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="transition inline-flex items-center border text-red-700 border-red-700 bg-transparent hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
             >
               <svg
                 className="mr-2 w-2 h-2"
