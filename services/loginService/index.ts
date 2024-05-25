@@ -9,7 +9,7 @@ export async function logIn(login: string, password:string){
         body: JSON.stringify({login, password})
     }
 
-    const response = await fetch(`http://${apiUrl}/auth/login`, body)
+    const response = await fetch(`${apiUrl}/auth/login`, body)
     
     if (!response.ok) {
         if (response.status === 400) {
@@ -32,7 +32,7 @@ export async function logOut(){
         }
     }
 
-    const response = await fetch(`http://${apiUrl}/auth/logout`, body)
+    const response = await fetch(`${apiUrl}/auth/logout`, body)
     
     if (!response.ok) {
         throw new Error('Une erreur a lieu lors du processus de deconnexion')
