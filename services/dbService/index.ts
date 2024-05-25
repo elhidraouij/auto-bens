@@ -23,7 +23,7 @@ class AutobensDatabase {
     if (this.db === null) {
       console.log("Répertoire actuel : " + process.cwd());
       let projectDir = process.cwd()
-      const dirPath = projectDir + "db";
+      const dirPath = projectDir + "/db";
       try {
         await fsPromises.mkdir(dirPath, { recursive: true });
         console.log(`Dossier créé à l'adresse : ${dirPath}`);
