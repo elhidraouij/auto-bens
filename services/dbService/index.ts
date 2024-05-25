@@ -1,8 +1,5 @@
 import sqlite3 from "sqlite3";
 import { open, Database } from "sqlite";
-import fs from "fs";
-const fsPromises = fs.promises;
-import path from "path";
 
 class AutobensDatabase {
     private static instance: AutobensDatabase;
@@ -20,13 +17,24 @@ class AutobensDatabase {
 //
     public async getDatabase(): Promise<Database> {
         if (this.db === null) {
-            const dbPath = '/db/autobens.db';
-            const dirPath = path.dirname(dbPath);
+            console.log("Chemin complet du fichier actuel :", __filename);
+            let dbPath = 'db/autobens.db';
 
             try {
-                await fsPromises.access(dirPath);
+                this.db = await open({
+                    filename: dbPath,
+                    driver: sqlite3.Database
+                });
             } catch (error) {
-                await fsPromises.mkdir(dirPath, { recursive: true });
+                dbPath = '../db/autobens.db'
+            }
+            try {
+                this.db = await open({
+                    filename: dbPath,
+                    driver: sqlite3.Database
+                });
+            } catch (error) {
+                dbPath = '/db/autobens.db'
             }
             this.db = await open({
                 filename: dbPath,
