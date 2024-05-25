@@ -24,7 +24,7 @@ export const GET = async (
     let pageInt = 0;
     let elementPerPageInt = 0;
     let hiddenBool = hidden === 'true';
-    let soldedBool = solded === 'false';
+    let soldedBool = solded === 'true';
     try {
         pageInt = +page
         elementPerPageInt = +elementPerPage
