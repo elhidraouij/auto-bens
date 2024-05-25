@@ -1,33 +1,53 @@
-import AutobensDatabase from "@/services/dbService"
+import prisma from "@/services/dbService"
 import { MessageProps } from "@/types"
 
-export const fetchMessages = async (page: number, elementParPage: number) => {
-    const queryMessages = "SELECT * FROM messages ORDER BY datePublication DESC LIMIT ? OFFSET ?"
-    const queryTotalMessages = "SELECT COUNT(*) as total_messages FROM messages"
+export const fetchMessages = async (page: number, elementsPerPage: number) => {
+    const skip = elementsPerPage * (page - 1);
 
-    const db = await AutobensDatabase.getInstance().getDatabase()
+    const [messages, totalMessages] = await prisma.$transaction([
+        prisma.message.findMany({
+            take: elementsPerPage,
+            skip: skip,
+            orderBy: {
+                datePublication: 'desc'
+            }
+        }),
+        prisma.message.count()
+    ]);
 
-    const [messages, totalMessages] = await Promise.all([
-        db.all(queryMessages, [elementParPage, elementParPage*(page-1)]),
-        db.all(queryTotalMessages)
-    ])
+    const messagesWithConvertedDate = messages.map(message => ({
+        ...message,
+        datePublication: message.datePublication.toString()
+    }));
 
     return {
-        totalMessages: totalMessages[0].total_messages,
-        messages:messages
+        totalMessages,
+        messages: messagesWithConvertedDate
     };
-}
+};
 
 export const insertMessages = async (message: MessageProps) => {
-    const query = "INSERT INTO messages(prenom, nom, email, telephone, description, object, datePublication) VALUES(?, ?, ?, ?, ?, ?, ?)"
-    const db = await AutobensDatabase.getInstance().getDatabase()
-
-    await db.run(query, [message.prenom, message.nom, message.email, message.telephone, message.description, message.object, message.datePublication])
-}
+    try {
+        await prisma.message.create({
+            data: {
+                prenom: message.prenom,
+                nom: message.nom,
+                email: message.email,
+                telephone: message.telephone,
+                description: message.description,
+                object: message.object,
+                datePublication: message.datePublication
+            }
+        });
+    } catch(err) {
+        console.log(err)
+    }
+    
+};
 
 export const readMessage = async (id: number) => {
-    const query = "UPDATE messages SET read = 1 WHERE id = ?"
-    const db = await AutobensDatabase.getInstance().getDatabase()
-
-    await db.run(query, [id])
-}
+    await prisma.message.update({
+        where: { id: id },
+        data: { read: true }
+    });
+};

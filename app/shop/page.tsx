@@ -29,7 +29,7 @@ export default function Shop() {
             FIABILITE
           </div>
         </div>
-        <CarCatalogue hidden={0} solded={0} isAdmin={false} title="RESERVEZ VOTRE VOITURE MAINTENANT"/>
+        <CarCatalogue hidden={false} solded={false} isAdmin={false} title="RESERVEZ VOTRE VOITURE MAINTENANT"/>
       </div>
     </main>
   );

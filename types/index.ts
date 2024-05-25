@@ -10,8 +10,8 @@ export interface SearchBarProps {
     setPage: (page: number) => void;
     setModel: (model: string) => void;
     setManufacturer: (manufacturer: string) => void;
-    hidden: number;
-    solded: number;
+    hidden: boolean;
+    solded: boolean;
 }
 
 export interface SearchManufacturerProps {
@@ -47,15 +47,15 @@ export interface CarProps {
     mileage: number;
     price: number;
     capacity: number;
-    solded: number;
-    hidden: number;
+    solded: boolean;
+    hidden: boolean;
 }
 
 export interface CarCatalogueProps {
     title?: string;
     subtitle?: string;
-    hidden: number;
-    solded: number;
+    hidden: boolean;
+    solded: boolean;
     isAdmin: boolean;
 }
 
@@ -67,6 +67,6 @@ export interface MessageProps {
     email: string;
     object: string;
     description: string;
-    read?: number;
+    read?: boolean;
     datePublication: number
 }

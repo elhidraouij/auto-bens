@@ -78,9 +78,9 @@ const MessagesDashboard = () => {
                       if (!m || !m.id) return;
                       setMessage(m);
                       try {
-                        if (m.read === 0) {
+                        if (!m.read) {
                           readMessage(m.id);
-                          m.read = 1;
+                          m.read = true;
                         }
                       } catch {
                         return;
@@ -88,7 +88,7 @@ const MessagesDashboard = () => {
                       setShowDialog(true);
                     }}
                     className={`transition grid grid-cols-5 gap-4 px-6 py-2 cursor-pointer ${
-                      m.read === 1 ? "bg-zinc-100 hover:bg-zinc-200" : "bg-zinc-50 hover:bg-zinc- 100"
+                      m.read ? "bg-zinc-100 hover:bg-zinc-200" : "bg-zinc-50 hover:bg-zinc- 100"
                     } border-b border-b-zinc-200 text-zinc-600`}
                   >
                     <div

@@ -12,8 +12,8 @@ const AllCars = () => {
       <CarCatalogue
         title={title}
         subtitle={subtitle}
-        hidden={0}
-        solded={0}
+        hidden={false}
+        solded={false}
         isAdmin={true}
       />
     </div>

@@ -44,7 +44,6 @@ const CarCard = ({ car, isAdmin, setRefreshEvent }: CarCardProps) => {
           (isAdmin ? " cursor-pointer" : "")
         }
         onClick={() => {
-          console.log("hello")
           if (isAdmin) {
             setShowDialog(true);
           }
@@ -55,12 +54,12 @@ const CarCard = ({ car, isAdmin, setRefreshEvent }: CarCardProps) => {
             {brand} {model} {year}
           </h2>
           <div className="flex flex-col items-end gap-2 absolute right-0">
-            {solded === 1 && (
+            {solded && (
               <h2 className="text-xs text-zinc-800 px-2 py-1 rounded-md bg-yellow-500 font-semibold -skew-x-12">
                 Vendue
               </h2>
             )}
-            {hidden === 1 && (
+            {hidden && (
               <h2 className="text-xs text-zinc-800 px-2 py-1 rounded-md bg-yellow-500 font-semibold -skew-x-12">
                 Désactivée
               </h2>

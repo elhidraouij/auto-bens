@@ -1,51 +1,82 @@
 import { CarProps } from "@/types";
-import AutobensDatabase from "../../services/dbService";
+import prisma from "@/services/dbService";
 
-export async function fetchCars(page: number, elementPerPage: number, hidden: number, solded: number, brand: string, model: string): Promise<any> {
-    brand = '%'.concat(brand, '%')
-    model = '%'.concat(model, '%')
-    const queryCars = `
-        SELECT * 
-        FROM cars 
-        WHERE solded = ? AND hidden = ? AND brand LIKE ? AND model LIKE ? LIMIT ? OFFSET ?`
-    const queryTotalCars = `
-        SELECT COUNT(*) as total_cars
-        FROM cars 
-        WHERE solded = ? AND hidden = ? AND brand LIKE ? AND model LIKE ?`
+export async function fetchCars(page: number, elementsPerPage: number, hidden: boolean, solded: boolean, brand: string, model: string) {
+    const skip = (page - 1) * elementsPerPage;
+    const whereClause = {
+        solded: solded,
+        hidden: hidden,
+        brand: { contains: brand },
+        model: { contains: model }
+    };
 
-    const db = await AutobensDatabase.getInstance().getDatabase()
-
-    const [cars, totalCars] = await Promise.all([
-        db.all(queryCars, [solded, hidden, brand, model, elementPerPage, elementPerPage*(page-1)]),
-         db.all(queryTotalCars, [solded, hidden, brand, model])
-        ])
+    const [cars, totalCars] = await prisma.$transaction([
+        prisma.car.findMany({
+            where: whereClause,
+            skip: skip,
+            take: elementsPerPage,
+        }),
+        prisma.car.count({
+            where: whereClause
+        })
+    ]);
 
     return {
-        totalCars: totalCars[0].total_cars,
-        cars: cars
+        totalCars,
+        cars
     };
 }
 
 export async function insertCar(car: CarProps) {
-    const query = 'INSERT INTO cars(brand, model, year, fuel, transmission, image, mileage, price, capacity, hidden, solded) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-    const db = await AutobensDatabase.getInstance().getDatabase()
-    await db.run(query, [car.brand, car.model, car.year, car.fuel, car.transmission, car.image, car.mileage, car.price, car.capacity, car.hidden, car.solded])
+    const newCar = await prisma.car.create({
+        data: {
+            brand: car.brand,
+            model: car.model,
+            year: car.year,
+            fuel: car.fuel,
+            transmission: car.transmission,
+            image: car.image,
+            mileage: car.mileage,
+            price: car.price,
+            capacity: car.capacity,
+            hidden: car.hidden,
+            solded: car.solded
+        }
+    });
+    return newCar;
 }
 
 export async function updateCar(car: CarProps) {
-    const query = 'UPDATE cars SET brand = ?, model = ?, year = ?, fuel = ?, transmission = ?, image = ?, mileage = ?, price = ?, capacity = ?, hidden = ?, solded = ? WHERE id = ?'
-    const db = await AutobensDatabase.getInstance().getDatabase()
-    await db.run(query, [car.brand, car.model, car.year, car.fuel, car.transmission, car.image, car.mileage, car.price, car.capacity, car.hidden, car.solded, car.id])
+    const updatedCar = await prisma.car.update({
+        where: { id: car.id },
+        data: {
+            brand: car.brand,
+            model: car.model,
+            year: car.year,
+            fuel: car.fuel,
+            transmission: car.transmission,
+            image: car.image,
+            mileage: car.mileage,
+            price: car.price,
+            capacity: car.capacity,
+            hidden: car.hidden,
+            solded: car.solded
+        }
+    });
+    return updatedCar;
 }
 
 export async function deleteCar(id: number) {
-    const query = " DELETE FROM cars WHERE id = ?"
-    const db = await AutobensDatabase.getInstance().getDatabase()
-    await db.run(query, [id])
+    const deletedCar = await prisma.car.delete({
+        where: { id: id }
+    });
+    return deletedCar;
 }
 
-export async function fetchModels(): Promise<Array<string>> {
-    const db = await AutobensDatabase.getInstance().getDatabase()
-    const models = await db.all('SELECT DISTINCT model FROM cars')
-    return models
+export async function fetchModels() {
+    const models = await prisma.car.findMany({
+        select: { model: true },
+        distinct: ['model']
+    });
+    return models.map(model => model.model);
 }

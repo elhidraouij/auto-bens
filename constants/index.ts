@@ -2,7 +2,7 @@ import { link } from "fs"
 
 export const secret_key = 'autobens_feat_dalwaj_for_cars'
 ///
-export const apiUrl = 'https://auto-bens.netlify.app/api'
+export const apiUrl = process.env.NEXT_PUBLIC_API_URL ? process.env.NEXT_PUBLIC_API_URL : 'https://auto-bens.vercel.app/api'
 export const manufacturers = [
     "Toyota",
     "Volkswagen",

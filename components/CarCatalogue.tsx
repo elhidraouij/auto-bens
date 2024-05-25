@@ -85,7 +85,7 @@ const CarCatalogue = ({
         <section className="flex flex-col my-8 gap-6">
           <div className="gap-6 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
             {Array.from({ length: elementPerPage }, (_, i) => {
-              return <SkeletonCard />;
+              return <div key={i}><SkeletonCard /></div>;
             })}
           </div>
         </section>

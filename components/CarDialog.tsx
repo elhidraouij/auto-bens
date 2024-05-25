@@ -41,8 +41,8 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
       setMileage(car.mileage.toString());
       setPrice(car.price.toString());
       setCapacity(car.capacity.toString());
-      setSolded(car.solded === 1);
-      setHidden(car.hidden === 1);
+      setSolded(car.solded);
+      setHidden(car.hidden);
     }
   }, []);
 
@@ -86,8 +86,8 @@ const CarDialog = ({ car, setShowDialog, setRefreshEvent }: CarDialogProps) => {
     form.append("mileage", mileage);
     form.append("price", price);
     form.append("capacity", capacity);
-    form.append("hidden", hidden ? "1" : "0");
-    form.append("solded", solded ? "1" : "0");
+    form.append("hidden", hidden.toString());
+    form.append("solded", solded.toString());
 
     try {
       if (edit) {

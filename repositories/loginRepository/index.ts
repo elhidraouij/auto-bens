@@ -1,14 +1,13 @@
-import AutobensDatabase from "@/services/dbService";
+import prisma from "@/services/dbService";
 
-export async function fetchUser(login: string){
-    const db = await AutobensDatabase.getInstance().getDatabase()
-    const query = 'SELECT * FROM user WHERE login = ?;'
-
+export async function fetchUser(login: string) {
     try {
-        const result = await db.get(query, [login]);
-        return result;
-    } catch(error) {
+        const user = await prisma.user.findUnique({
+            where: { login: login }
+        });
+        return user;
+    } catch (error) {
+        console.error("Error fetching user:", error);
         return null;
     }
-
 }

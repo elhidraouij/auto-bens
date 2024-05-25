@@ -14,7 +14,7 @@ const page = () => {
         <div className="z-0 min-h-full absolute top-0 left-0 w-full bg-cover bg-opacity-10 bg-center bg-[url('/images/shop-cars-hero.jpg')] brightness-50"></div>
       </div>
       <div className="py-14 2xl:px-52 xl:px-36">
-        <CarCatalogue hidden={0} solded={0} isAdmin={false} />
+        <CarCatalogue hidden={false} solded={false} isAdmin={false} />
       </div>
     </section>
   );

@@ -3,17 +3,11 @@ import { apiUrl } from "@/constants"
 export const getCars = async (
     page: number,
     elementPerPage: number,
-    hidden: number,
-    solded: number,
+    hidden: boolean,
+    solded: boolean,
     brand: string,
     model: string
 ) => {
-    const body = {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }
     brand = brand ? brand : ''
     model = model ? model : ''
 

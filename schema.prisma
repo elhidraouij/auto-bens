@@ -1,0 +1,42 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model Car {
+  id          Int     @id @default(autoincrement())
+  brand       String
+  model       String
+  year        Int
+  fuel        String
+  transmission String
+  image       String?
+  mileage     Int
+  price       Float
+  capacity    Float
+  solded      Boolean @default(false)
+  hidden      Boolean @default(false)
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  login    String @unique
+  password String
+}
+
+model Message {
+  id          Int     @id @default(autoincrement())
+  prenom      String
+  nom         String
+  email       String
+  telephone   String
+  description String
+  object      String
+  read        Boolean @default(false)
+  datePublication BigInt
+}
