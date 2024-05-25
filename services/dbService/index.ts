@@ -17,7 +17,7 @@ class AutobensDatabase {
         }
         return AutobensDatabase.instance;
     }
-
+//
     public async getDatabase(): Promise<Database> {
         if (this.db === null) {
             const dbPath = '/db/autobens.db';
