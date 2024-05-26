@@ -1,4 +1,5 @@
 import { ContactUs } from "@/components";
+import MeetUs from "@/components/MeetUs";
 import React from "react";
 
 const page = () => {
@@ -15,8 +16,9 @@ const page = () => {
         </div>
         <div className="z-0 min-h-full absolute top-0 left-0 w-full bg-cover bg-opacity-10 bg-center bg-[url('/images/contact-us-hero.jpg')] brightness-50"></div>
       </div>
-      <div className="py-14 px-8 md:px-[100px] xl:px-[350px]">
+      <div className="flex flex-col gap-14 py-14 px-8 md:px-[100px] xl:px-[350px]">
         <ContactUs/>
+        <MeetUs />
       </div>
     </section>
   );
