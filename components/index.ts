@@ -17,6 +17,7 @@ import ContactUs from './ContactUs'
 import MessagesDashboard from './MessagesDashboard'
 import MessageSkeleton from './MessageSkeleton'
 import MessageDialog from './MessageDialog'
+import MobileNav from './MobileNav'
 
 export {
     Hero,

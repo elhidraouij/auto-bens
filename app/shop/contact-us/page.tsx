@@ -10,7 +10,7 @@ const page = () => {
             NOUS CONTACTER
           </h2>
           <p className="italic text-5xl text-white mb-20 text-center">
-            ENTREZ EN CONTACT <span className="font-bold">AVEC NOUS</span>
+            ENTRONS <span className="font-bold">EN CONTACT</span>
           </p>
         </div>
         <div className="z-0 min-h-full absolute top-0 left-0 w-full bg-cover bg-opacity-10 bg-center bg-[url('/images/contact-us-hero.jpg')] brightness-50"></div>

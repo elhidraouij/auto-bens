@@ -6,9 +6,12 @@ import Image from "next/image";
 import SlideButton from "./SlideButton";
 import { headerLinks } from "@/constants";
 import { useEffect, useState } from "react";
+import { MenuBurgerIcon } from "./icons";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   const [opacity, setOpacity] = useState("bg-opacity-0");
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   const handleScroll = () => {
     if (window.scrollY === 0) {
@@ -34,7 +37,11 @@ const Header = () => {
     >
       <div className="flex flex-col justify-center items-stretch">
         <div className="flex flex-row justify-between items-center px-10 py-2">
-          <Link href="/shop">
+          <MobileNav showMobileNav={showMobileMenu} setShowMobileNav={setShowMobileMenu}/>
+          <div className="flex sm:hidden cursor-pointer" onClick={() => {setShowMobileMenu(prev => !prev)}}>
+            <MenuBurgerIcon />
+          </div>
+          <Link className="hidden sm:block" href="/shop">
             <span className="text-white text-xl tracking-widest">
               AUTO BEN'S
             </span>
@@ -47,10 +54,10 @@ const Header = () => {
               height={50}
             />
           </Link>
-          <Link href={'/shop/cars'}>
+          <Link className="sm:block hidden" href={"/shop/cars"}>
             <SlideButton
               title="NOS VEHICULES"
-              styles="sm:block hidden text-white border-yellow-500 bg-yellow-500 hover:bg-transparent hover:text-yellow-500"
+              styles="text-white border-yellow-500 bg-yellow-500 hover:bg-transparent hover:text-yellow-500"
             />
           </Link>
         </div>
